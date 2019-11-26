@@ -53,4 +53,12 @@ export class StudentsService {
   add(student) {
     this.students.push(student);
   }
+
+  findStudentById(id) {
+    return this.students[id];
+  }
+
+  update(student, id) {
+    this.students[id] = student;
+  }
 }
