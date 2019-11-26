@@ -29,6 +29,7 @@
                 <th scope="col">Image</th>
               </ng-container>
               <th scope="col">Action</th>
+              <th scope="col">Rating</th>
             </tr>
             </thead>
             <tbody>
@@ -42,6 +43,9 @@
                   <img src="{{student.image}}" alt="">
                 </td>
               </ng-container>
+              <td>
+                <app-star [star]="student.star"></app-star>
+              </td>
               <td>
                 <button type="button" class="btn btn-danger" (click)="delete(i)">Delete</button>&nbsp;
                 <button type="button" class="btn btn-info">Edit</button>

@@ -3,4 +3,5 @@ export interface IStudent {
   age: number;
   address: string;
   image?: string;
+  star: number,
 }
