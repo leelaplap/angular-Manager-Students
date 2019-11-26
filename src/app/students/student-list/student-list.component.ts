@@ -11,6 +11,7 @@ export class StudentListComponent implements OnInit {
   students = this.ss.getAll();
   showImg = true;
   listStudents: IStudent[] = [];
+  showMess: string;
 
   constructor(private ss: StudentsService) {
   }
@@ -36,5 +37,9 @@ export class StudentListComponent implements OnInit {
     return this.students.filter(
       student => student.name.toLowerCase().indexOf(data) !== -1
     );
+  }
+
+  showMessage(event) {
+    this.showMess = event;
   }
 }
