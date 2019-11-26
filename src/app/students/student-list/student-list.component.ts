@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {IStudent} from '../istudent';
+import {StudentsService} from '../students.service';
 
 @Component({
   selector: 'app-student-list',
@@ -7,45 +8,15 @@ import {IStudent} from '../istudent';
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
-  students: IStudent[] = [
-    {
-      name: 'ngoAnhThu',
-      age: 21,
-      address: 'hanoi',
-      image: 'assets/images/anh1.jpg'
-    },
-    {
-      name: 'leQuynhTrang',
-      age: 21,
-      address: 'hanoi',
-      image: 'assets/images/anh2.jpg'
-    },
-    {
-      name: 'nguyenLamHaVi',
-      age: 21,
-      address: 'hanoi',
-      image: 'assets/images/anh3.jpg'
-    },
-    {
-      name: 'hoLiPhuong',
-      age: 21,
-      address: 'hanoi',
-      image: 'assets/images/anh4.jpg'
-    },
-    {
-      name: 'nguyenThiThuTrang',
-      age: 21,
-      address: 'hanoi',
-      image: 'assets/images/anh5.jpg'
-    },
-  ];
+  students = this.ss.getAll();
   showImg = true;
   listStudents: IStudent[] = [];
 
-  constructor() {
+  constructor(private ss: StudentsService) {
   }
 
   ngOnInit() {
+    this.listStudents = this.students;
   }
 
   delete(id) {
